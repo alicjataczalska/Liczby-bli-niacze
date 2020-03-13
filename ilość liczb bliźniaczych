@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+bool*tab=new bool [1000000];
+
+int main()
+{
+    int n, i=2;
+    cin>>n;
+
+    for( i; i*i<=n; i++)
+    {
+        if (tab[i]==0)
+        {
+            for(int j=i*i; j<n; j+=i)
+         tab[j] = 1;
+        }
+    }
+
+
+int counter = 0;
+    {
+   for(int i=1; i<n; i++)
+        for(int l=1; l<n; l++)
+        if(tab[i] == false && tab[l] == false)
+        {
+            if(i-l == 2)
+            {
+                counter++;
+            }
+        }
+    }
+cout << counter;
+
+delete tab;
+
+     return 0;
+}
